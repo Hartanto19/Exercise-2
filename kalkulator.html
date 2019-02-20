@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        .number{
+            width : 50px;
+            margin : 4px;
+        }
+
+        .operator{
+            width : 50px;
+            margin : 4px;
+        }
+
+        .hasil{
+            width : 115px;
+
+        }
+
+        #input{
+            width : 308px;
+            border-radius: 5px;
+            border: 2px solid #1d2951;
+            padding : 10px;
+            text-align : right;
+        }
+
+        #kalkulator{
+            width : 320px;
+            border : 1px solid;
+            margin : 10px;
+            padding : 5px;
+            background-color: #1d2951;
+        }
+
+    </style>
+
+
+    <title>Kalkulator</title>
+
+</head>
+
+<body>
+<div class="container">
+    <div class="col">
+    <h1> Simple Kalkulator</h1>
+    </div>
+    <div id="kalkulator">
+        <input id="input" readonly/>
+        <br/>
+
+        <button class="btn btn-primary number" onclick="numberClick(this.value)" value="7"> 7</button>
+        <button class="btn btn-primary number" onclick="numberClick(this.value)" value="8"> 8</button>
+        <button class="btn btn-primary number" onclick="numberClick(this.value)" value="9"> 9</button>
+        <button class="btn btn-danger operator" onclick="operatorClick(this.value)" value="-"> -</button>
+        <button class="btn btn-danger operator" onclick="operatorClick(this.value)" value="x"> ×</button>
+        <br/>
+
+        <button class="btn btn-primary number" onclick="numberClick(this.value)" value="4"> 4</button>
+        <button class="btn btn-primary number" onclick="numberClick(this.value)" value="5"> 5</button>
+        <button class="btn btn-primary number" onclick="numberClick(this.value)" value="6"> 6</button>
+        <button class="btn btn-danger operator" onclick="operatorClick(this.value)" value="+"> +</button>
+        <button class="btn btn-danger operator" onclick="operatorClick(this.value)" value="/">÷</button>
+        <br/>
+
+        <button class="btn btn-primary number" onclick="numberClick(this.value)" value="1"> 1</button>
+        <button class="btn btn-primary number" onclick="numberClick(this.value)" value="2"> 2</button>
+        <button class="btn btn-primary number" onclick="numberClick(this.value)" value="3"> 3</button>
+        <button class="btn btn-success hasil" onclick="hasilKalkulator()"> = </button>
+        <br/>
+
+        <button class="btn btn-primary number" onclick="numberClick(this.value)" value="0"> 0</button>
+        <button class="btn btn-primary number" onclick="numberClick(this.value)" value="."> .</button>
+        <button class="btn btn-primary number" onclick="allClear()" value=""> AC</button>
+        <button class="btn btn-success hasil" onclick="delete()"> =<- </button>
+    </div>
+</div>
+</body>
+
+<script>
+    var input1 ='';
+    var input2 ='';
+    var operator = '';
+    var hasil = 0;
+
+    function numberClick(number){
+        if(operator===''){
+            input1 +=number;
+            document.getElementById("input").value=input1;
+        }
+        else {
+            input2 +=number;
+            document.getElementById("input").value=input2;
+        }
+    }
+
+    function operatorClick(e){
+        operator = e;
+        document.getElementById("input").value='';
+
+    }
+
+    function hasilKalkulator(){
+        document.getElementById("input").value='';
+
+        switch(operator){
+            case '-' :
+                hasil = parseFloat(input1) - parseFloat(input2);
+                break;
+            case '+' :
+                hasil = parseFloat(input1) + parseFloat(input2);
+                break;
+            case 'x' :
+                hasil = parseFloat(input1) * parseFloat(input2);
+                break;
+            case '/' :
+                hasil = parseFloat(input1) / parseFloat(input2);
+                break;
+        }
+        document.getElementById("input").value=hasil;
+    }
+    function allClear(){
+        input1 ='';
+        input2 ='';
+        operator = ''  ;
+        hasil = 0;
+        document.getElementById("input").value='';
+    }
+    
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+</html>
