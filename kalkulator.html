@@ -34,6 +34,9 @@
             padding : 5px;
             background-color: #1d2951;
         }
+        body{
+            background-image : url(
+            }
     </style>
 
 
@@ -43,40 +46,45 @@
 
 <body>
 <div class="container">
-    <div class="col">
-        <h1> Simple Kalkulator</h1>
+    <div class="row">
+        <div class="col" align ="center">
+            <h1> Simple Kalkulator</h1>
+        </div>
     </div>
-    <div id="kalkulator">
-        <button class="btn btn-primary number" onclick="allClear()" value=""> AC</button>
-        <input id="input" readonly/>
-        <br/>
+    <div class="row">
+        <div class="col" align ="center">
+		<div id ='kalkulator'>
+            <button class="btn btn-primary number" onclick="allClear()" value=""> AC</button>
+            <input id="input" readonly/>
+            <br/>
 
-        <button class="btn btn-primary number" onclick="numberClick(this.value)" value="7"> 7</button>
-        <button class="btn btn-primary number" onclick="numberClick(this.value)" value="8"> 8</button>
-        <button class="btn btn-primary number" onclick="numberClick(this.value)" value="9"> 9</button>
-        <button class="btn btn-danger operator" onclick="operatorClick(this.value)" value="+"> +</button>
-        <br/>
+            <button class="btn btn-primary number" onclick="numberClick(this.value)" value="7"> 7</button>
+            <button class="btn btn-primary number" onclick="numberClick(this.value)" value="8"> 8</button>
+            <button class="btn btn-primary number" onclick="numberClick(this.value)" value="9"> 9</button>
+            <button class="btn btn-danger operator" onclick="operatorClick(this.value)" value="+"> +</button>
+            <br/>
 
-        <button class="btn btn-primary number" onclick="numberClick(this.value)" value="4"> 4</button>
-        <button class="btn btn-primary number" onclick="numberClick(this.value)" value="5"> 5</button>
-        <button class="btn btn-primary number" onclick="numberClick(this.value)" value="6"> 6</button>
-        <button class="btn btn-danger operator" onclick="operatorClick(this.value)" value="-"> -</button>
-        <br/>
+            <button class="btn btn-primary number" onclick="numberClick(this.value)" value="4"> 4</button>
+            <button class="btn btn-primary number" onclick="numberClick(this.value)" value="5"> 5</button>
+            <button class="btn btn-primary number" onclick="numberClick(this.value)" value="6"> 6</button>
+            <button class="btn btn-danger operator" onclick="operatorClick(this.value)" value="-"> -</button>
+            <br/>
 
-        <button class="btn btn-primary number" onclick="numberClick(this.value)" value="1"> 1</button>
-        <button class="btn btn-primary number" onclick="numberClick(this.value)" value="2"> 2</button>
-        <button class="btn btn-primary number" onclick="numberClick(this.value)" value="3"> 3</button>
-        <button class="btn btn-danger operator" onclick="operatorClick(this.value)" value="x"> ×</button>
+            <button class="btn btn-primary number" onclick="numberClick(this.value)" value="1"> 1</button>
+            <button class="btn btn-primary number" onclick="numberClick(this.value)" value="2"> 2</button>
+            <button class="btn btn-primary number" onclick="numberClick(this.value)" value="3"> 3</button>
+            <button class="btn btn-danger operator" onclick="operatorClick(this.value)" value="x"> ×</button>
 
 
-        <br/>
+            <br/>
 
-        <button class="btn btn-primary number" onclick="numberClick(this.value)" value="0"> 0</button>
-        <button class="btn btn-primary number" onclick="numberClick(this.value)" value="."> .</button>
+            <button class="btn btn-primary number" onclick="numberClick(this.value)" value="0"> 0</button>
+            <button class="btn btn-primary number" onclick="numberClick(this.value)" value="."> .</button>
 
-        <button class="btn btn-success hasil" onclick="hasilKalkulator()"> = </button>
-        <button class="btn btn-danger operator" onclick="operatorClick(this.value)" value="/">÷</button>
-
+            <button class="btn btn-success hasil" onclick="hasilKalkulator()"> = </button>
+            <button class="btn btn-danger operator" onclick="operatorClick(this.value)" value="/">÷</button>
+</div>
+        </div>
     </div>
 </div>
 </body>
