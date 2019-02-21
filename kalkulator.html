@@ -12,33 +12,28 @@
             width : 50px;
             margin : 4px;
         }
-
         .operator{
             width : 50px;
             margin : 4px;
         }
-
         .hasil{
-            width : 115px;
-
+            width : 50px;
+            margin : 4px;
         }
-
         #input{
-            width : 308px;
+            width : 180px;
             border-radius: 5px;
             border: 2px solid #1d2951;
             padding : 10px;
             text-align : right;
         }
-
         #kalkulator{
-            width : 320px;
+            width : 260px;
             border : 1px solid;
             margin : 10px;
             padding : 5px;
             background-color: #1d2951;
         }
-
     </style>
 
 
@@ -49,35 +44,39 @@
 <body>
 <div class="container">
     <div class="col">
-    <h1> Simple Kalkulator</h1>
+        <h1> Simple Kalkulator</h1>
     </div>
     <div id="kalkulator">
+        <button class="btn btn-primary number" onclick="allClear()" value=""> AC</button>
         <input id="input" readonly/>
         <br/>
 
         <button class="btn btn-primary number" onclick="numberClick(this.value)" value="7"> 7</button>
         <button class="btn btn-primary number" onclick="numberClick(this.value)" value="8"> 8</button>
         <button class="btn btn-primary number" onclick="numberClick(this.value)" value="9"> 9</button>
-        <button class="btn btn-danger operator" onclick="operatorClick(this.value)" value="-"> -</button>
-        <button class="btn btn-danger operator" onclick="operatorClick(this.value)" value="x"> ×</button>
+        <button class="btn btn-danger operator" onclick="operatorClick(this.value)" value="+"> +</button>
         <br/>
 
         <button class="btn btn-primary number" onclick="numberClick(this.value)" value="4"> 4</button>
         <button class="btn btn-primary number" onclick="numberClick(this.value)" value="5"> 5</button>
         <button class="btn btn-primary number" onclick="numberClick(this.value)" value="6"> 6</button>
-        <button class="btn btn-danger operator" onclick="operatorClick(this.value)" value="+"> +</button>
-        <button class="btn btn-danger operator" onclick="operatorClick(this.value)" value="/">÷</button>
+        <button class="btn btn-danger operator" onclick="operatorClick(this.value)" value="-"> -</button>
         <br/>
 
         <button class="btn btn-primary number" onclick="numberClick(this.value)" value="1"> 1</button>
         <button class="btn btn-primary number" onclick="numberClick(this.value)" value="2"> 2</button>
         <button class="btn btn-primary number" onclick="numberClick(this.value)" value="3"> 3</button>
-        <button class="btn btn-success hasil" onclick="hasilKalkulator()"> = </button>
+        <button class="btn btn-danger operator" onclick="operatorClick(this.value)" value="x"> ×</button>
+
+
         <br/>
 
         <button class="btn btn-primary number" onclick="numberClick(this.value)" value="0"> 0</button>
         <button class="btn btn-primary number" onclick="numberClick(this.value)" value="."> .</button>
-        <button class="btn btn-primary number" onclick="allClear()" value=""> AC</button>
+
+        <button class="btn btn-success hasil" onclick="hasilKalkulator()"> = </button>
+        <button class="btn btn-danger operator" onclick="operatorClick(this.value)" value="/">÷</button>
+
     </div>
 </div>
 </body>
@@ -87,7 +86,6 @@
     var input2 ='';
     var operator = '';
     var hasil = 0;
-
     function numberClick(number){
         if(operator===''){
             input1 +=number;
@@ -98,29 +96,33 @@
             document.getElementById("input").value=input2;
         }
     }
-
     function operatorClick(e){
         operator = e;
         document.getElementById("input").value='';
-
     }
-
     function hasilKalkulator(){
         document.getElementById("input").value='';
-
-        switch(operator){
-            case '-' :
-                hasil = parseFloat(input1) - parseFloat(input2);
-                break;
-            case '+' :
-                hasil = parseFloat(input1) + parseFloat(input2);
-                break;
-            case 'x' :
-                hasil = parseFloat(input1) * parseFloat(input2);
-                break;
-            case '/' :
-                hasil = parseFloat(input1) / parseFloat(input2);
-                break;
+        if(operator!=''){
+            switch(operator){
+                case '-' :
+                    hasil = parseFloat(input1) - parseFloat(input2);
+                    break;
+                case '+' :
+                    hasil = parseFloat(input1) + parseFloat(input2);
+                    break;
+                case 'x' :
+                    hasil = parseFloat(input1) * parseFloat(input2);
+                    break;
+                case '/' :
+                    hasil = parseFloat(input1) / parseFloat(input2);
+                    break;
+            }
+            input1 = hasil;
+            input2 = '';
+            operator = '';
+        }
+        else{
+            hasil = parseFloat(input1);
         }
         document.getElementById("input").value=hasil;
     }
@@ -131,7 +133,6 @@
         hasil = 0;
         document.getElementById("input").value='';
     }
-
 </script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
